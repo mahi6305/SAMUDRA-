@@ -10,3 +10,5 @@ Storms can knock out internet and mobile networks before local warning systems a
 The gap is the last mile: warning people locally when connectivity has failed.
 
 SAMUDRA's answer is fewer points of failure: two local nodes, a protected radio link, and a display that runs from a USB connection alone.
+# How it works
+
