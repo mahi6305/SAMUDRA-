@@ -185,4 +185,4 @@ Being honest about what is and is not proven:
 - **Automated latency measurement**
 - **Calibrate the rain and water-level thresholds on site**
 - **Measure energy draw and add a low-power mode**
--  
+- <img width="1280" height="800" alt="Image" src="https://github.com/user-attachments/assets/e04a4cae-eff2-444b-8ce5-cd84b50bca03" /> 
