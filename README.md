@@ -1,8 +1,15 @@
-# SAMUDRA-
-Off-Grid Climate Resilience Network.Reliable local intelligence when connectivity fails
+# SAMUDRA-(Off-Grid Climate Resilience Network)
 SAMUDRA is a self-sufficient flood and weather early-warning system built by Team VEEKSHANA. Two ESP32 nodes exchange sensor readings over an encrypted, channel-hopping nRF24L01 radio link with no internet or mobile network, and a live Python dashboard shows the operator what is happening and raises alerts.
 
-Hackathon project: Idea & Solution presentation, Team VEEKSHANA.
+Hackathon project: Idea & Solution presentation, 
+## Team VEEKSHANA
+
+- B. Sai Tejaswi
+- O M Ruthwikaa
+- C Mahesh Babu
+- G M Charan Kumar
+- # COLLEGE NAME:-
+-  CHADAWADA RAMANAMA ENGINEEING COLLEGE ,TIRUPATI
 
 # Why this exists
 Flash floods and rising water can leave communities with only minutes to respond.
@@ -21,8 +28,6 @@ SAMUDRA's answer is fewer points of failure: two local nodes, a protected radio 
 | **USB display** | The receiver prints one JSON line per packet over USB, so the operator screen needs no network. |
 
 The sender transmits near the **middle of each RTC second**, so small differences between the two clocks cannot push a packet onto the wrong channel.
-
----
 
 ## Features
 
@@ -47,7 +52,6 @@ The sender transmits near the **middle of each RTC second**, so small difference
 | BMP180 | Pressure and temperature | Sender |
 | Rain sensor (AO + DO) | Rain detection | Sender |
 | HC-SR04 | Water distance | Sender |
-| LED + active buzzer | Local alert output | Receiver |
 | 10 µF capacitor × 2 | Across each nRF24's VCC/GND | Both |
 
 ### Wiring
@@ -66,8 +70,6 @@ The sender transmits near the **middle of each RTC second**, so small difference
 - The HC-SR04 ECHO pin outputs 5 V. Use a divider to bring it to 3.3 V for the ESP32.
 - Both nodes need a working DS3231: the radio channel and the encryption IV both depend on it.
 
----
-
 ## Repository layout
 
 ```
@@ -83,8 +85,6 @@ The sender transmits near the **middle of each RTC second**, so small difference
 │   └── requirements.txt
 └── README.md
 ```
-
----
 
 ## Getting started
 
@@ -118,8 +118,6 @@ Connect **both** boards by USB (receiver port and sender port in the dashboard),
 
 Close the Arduino/PlatformIO Serial Monitor before starting the dashboard, because only one program can use a serial port at a time.
 
----
-
 ## Configuration
 
 Settings live at the top of each `main.cpp`. Sender and receiver must match for the shared items.
@@ -132,8 +130,6 @@ Settings live at the top of each `main.cpp`. Sender and receiver must match for 
 | `PRESSURE_DROP_ALERT` / `PRESSURE_WINDOW_S` | 3 hPa / 60 s | Sender: use e.g. 3 hPa over 10800 s for real storm trends |
 | `RAIN_WET_THRESHOLD` | 2000 | Receiver: uncalibrated, lower raw value = wetter |
 | `RF24_PA_LOW` | low power | Raise to `RF24_PA_HIGH` for range |
-
----
 
 ## Packet format
 
@@ -162,8 +158,6 @@ One JSON object per line, for example:
 
 Other line types: `status` (once per second: link state, counters, RTC time) and `event` (warnings and info). The receiver accepts `T<unix_epoch>` on serial to set its RTC.
 
----
-
 ## Measuring it
 
 The project is meant to be judged on logged evidence, not assumptions. The dashboard and CSV logs give you:
@@ -173,8 +167,6 @@ The project is meant to be judged on logged evidence, not assumptions. The dashb
 | Delivery ratio | received ÷ sent | Dashboard link card (good / rejected / missed) and CSV `seq` / `missed` |
 | Data completeness | valid fields ÷ expected fields | CSV: empty cells mark missing sensor values |
 | Latency | receive time − send time | Not yet automated. The sender's `epoch` and the CSV `pc_time` are the raw inputs |
-
----
 
 ## Known limitations
 
@@ -188,23 +180,9 @@ Being honest about what is and is not proven:
 - Developed and tested as a prototype. It has not been field-tested outdoors or for power consumption.
 
 ## Roadmap
-
-- [ ] Switch to AES-GCM with an authentication tag and replay protection
-- [ ] Deliberate jamming test and logged results
-- [ ] Automated latency measurement
-- [ ] Calibrate the rain and water-level thresholds on site
-- [ ] Measure energy draw and add a low-power mode
-- [ ] Add a screenshot of the dashboard to this README
-
----
-
-## Team VEEKSHANA
-
-- B. Sai Tejaswi
-- O M Ruthwikaa
-- C Mahesh Babu
-- G M Charan Kumar
-
-## License
-
-Add a license before publishing (MIT is a common choice for hackathon projects).
+- **Switch to AES-GCM with an authentication tag and replay protection**
+- **Deliberate jamming test and logged results**
+- **Automated latency measurement**
+- **Calibrate the rain and water-level thresholds on site**
+- **Measure energy draw and add a low-power mode**
+-  
