@@ -9,7 +9,7 @@ Hackathon project: Idea & Solution presentation,
 - C Mahesh Babu
 - G M Charan Kumar
 - # COLLEGE NAME:-
--  CHADAWADA RAMANAMA ENGINEEING COLLEGE ,TIRUPATI
+-  CHADALAWADA RAMANAMMA ENGINEEING COLLEGE ,TIRUPATI
 
 # Why this exists
 Flash floods and rising water can leave communities with only minutes to respond.
